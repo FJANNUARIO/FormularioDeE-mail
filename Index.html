@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Formulário de E-mail</title>
+</head>
+<body>
+
+    <h1>Formulário de E-mail</h1>
+
+    <form onsubmit="return validarFormulario()" method="post">
+
+        <label for="email">E-mail:</label><input type="email" id="email" name="email" required><button
+            type="submit">Enviar</button>
+
+    </form>
+    <!--começo do script-->
+    <script>
+
+        function validarFormulario() {
+
+            const emailInput = document.getElementById('email');
+
+            const email = emailInput.value.trim();
+
+            // Expressão regular para validar o formato do e-mail 
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+
+                alert('Por favor, insira um endereço de e-mail válido!');
+
+                emailInput.focus(); // Coloca o foco de volta no campo de e-mail 
+
+                return false; // Impede o envio do formulário se o e-mail for inválido 
+
+            }  // Se o e-mail for válido, o formulário pode ser enviado 
+
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>
